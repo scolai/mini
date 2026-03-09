@@ -1,2 +1,2 @@
 # mini
-github practice
+GITHUB PRACTICE UPDATE
