@@ -7,7 +7,7 @@
         --page-background: linear-gradient(hsla(218, 19%, 38%), hsla(229, 19%, 22%));
         --card-background: #fff;
         --primary: hsla(354, 71%, 55%);
-        --fc-contrast: hsla();
+        --fc-contrast: #fff;
         --fc-secondary: hsla(180, 3%, 45%);
         --ff-primary: Helvetica, Arial, sans-serif;
         --card__list-background: hsla(355, 100%, 93%);
