@@ -133,6 +133,7 @@
         display: flex;
         gap: 16px;
         justify-content: center;
+        align-items: center;
         margin-block-start: 36px;
     }
 
