@@ -51,6 +51,7 @@
         width: var(--imageSize);
         height: var(--imageSize);
         object-fit: cover;
+        max-inline-size: 100%;
         margin-block-start: calc(-1 * var(--imageSize) / 3); /* applies a negative top margin based on image size */
         border-radius: 50%;
     }
