@@ -4,13 +4,13 @@
 
 @layer theme {
     :root {
-        --page-background: linear-gradient(218°, 19%, 38%, hsla(229°, 19%, 22%));
+        --page-background: linear-gradient(hsla(218, 19%, 38%), hsla(229, 19%, 22%));
         --card-background: #fff;
-        --primary: hsla(354°, 71%, 55%);
+        --primary: hsla(354, 71%, 55%);
         --fc-contrast: hsla();
-        --fc-secondary: hsla(180°, 3%, 45%);
+        --fc-secondary: hsla(180, 3%, 45%);
         --ff-primary: Helvetica, Arial, sans-serif;
-        --technologies-background: hsla(355°, 100%, 93%);
+        --card__list-background: hsla(355, 100%, 93%);
         --imageSize: 200px;
     }
 
@@ -18,6 +18,12 @@
         background: var(--page-background);
         font-family: var(--ff-primary);
         color: var(--fc-primary);        
+    }
+
+    .card {
+        background-color: var(--card-background);
+        box-shadow: 0 0 55px hsla(225, 9%, 16%, 0.75);
+        border-radius: 4px;        
     }
 }
 
@@ -31,19 +37,28 @@
         display: flex;
         justify-content: center;
         align-items: center;        
-    }    
+    }
+    
+    .card {
+        width: 75vw;
+        max-width: 500px;   
+        text-align: center;
+        margin: calc(var(--imageSize) / 3 + 24) 24px; /* allows top/bottom margins to resize with image resizing; avoids static margins */
+        padding: 0 24px 24px;
+    }
+
+    img.portrait {
+        width: var(--imageSize);
+        height: var(--imageSize);
+        object-fit: cover;
+        margin-block-start: calc(-1 * var(--imageSize) / 3); /* applies a negative top margin based on image size */
+        border-radius: 50%;
+    }
 }
 
 
 @layer module {
     .card {
-        background-color: var(--card-background);
-        box-shadow: 0 0 55px hsla(225, 9%, 16%, 0.75);
-        width: 75vw;
-        max-width: 500px;
-        border-radius: 4px;
-        text-align: center;
-        margin: calc(var(--imageSize) / 3 + 24) 24px; /* allows top/bottom margins to resize with image resizing; avoids static margins */
         background-image: radial-gradient(
             circle at top,
             var(--primary) 50%,
@@ -52,10 +67,98 @@
         background-repeat: no-repeat;
         background-size: 1500px 500px;
         background-position: center -300px;
-        padding: 0 24px 24px;
     }
 
+    .card__title {
+        font-size: 2rem;
+        margin: 36px 0 0;
+        color: var(--primary);
+    }
 
+    .card__subtitle {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: var(--fc-secondary);
+    }
+
+    .card__description-list {
+        display: flex;
+        justify-content: space-around;
+        gap: 12px;
+    }
+
+    .card__description-list > * {
+        flex-basis: 33%; /* each list item is initially one-third of container width */
+        flex-shrink: 1; /* items will shrink proportionally */ 
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .description-list__term {
+        font-size: .75rem;
+    }
+
+    .description-list__detail {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: var(--primary);
+    }
+
+    .card__summary {
+        margin-block: 24px;
+        margin-inline: 0;
+    }
+
+    .card__list {
+        list-style: none;
+        padding: 0;
+        margin-block: 24px;
+        margin-inline: 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .card__list-item {
+        padding-block: 12px;
+        padding-inline: 24px;
+        background: var(--card__list-background);
+        border-radius: 24px;
+    }
+
+    .card__cta {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        margin-block-start: 36px;
+    }
+
+    .message, .follow {
+        padding-block: 12px;
+        padding-inline: 24px;
+        border-radius: 4px;
+        text-decoration: none;
+        border: 1px solid var(--primary);
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .follow {
+        background: var(--primary);
+        color: var(--fc-contrast)
+    }
+
+    .message {
+        background: var(--fc-contrast);
+        color: var(--primary);
+    }
+
+    *:focus-visible {
+        outline: dotted 1px var(--primary);
+        outline-offset: 3px;
+    }
 }
 
 @layer utilities {}
