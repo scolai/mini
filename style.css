@@ -23,7 +23,7 @@
 
 @layer base {}
 
-@layer layout {}
+@layer layout {
     body {
         margin: 0;
         padding: 0;
@@ -31,7 +31,9 @@
         display: flex;
         justify-content: center;
         align-items: center;        
-    }
+    }    
+}
+
 
 @layer module {
     .card {
