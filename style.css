@@ -13,13 +13,36 @@
         --technologies-background: hsla(355°, 100%, 93%);
         --imageSize: 200px;
     }
+
+    body {
+        background: var(--page-background);
+        font-family: var(--ff-primary);
+        color: var(--fc-primary);        
+    }
 }
 
 @layer base {}
 
 @layer layout {}
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+    }
 
 @layer module {
+    .card {
+        background-color: var(--card-background);
+        box-shadow: 0 0 55px hsla(225, 9%, 16%, 0.75);
+        width: 75vw;
+        max-width: 500px;
+        border-radius: 4px;
+        
+    }
+
 
 }
 
